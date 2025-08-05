@@ -1,326 +1,953 @@
+<!DOCTYPE html>
 <html lang="en">
- <head>
+<head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <title>
-   Dklinity - Advancing Next-Generation Clinical Research
-  </title>
-  <script src="https://cdn.tailwindcss.com">
-  </script>
+  <title>Dklinity - Advancing Next-Generation Clinical Research</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
   <style>
-   body {
-      font-family: "Inter", sans-serif;
-    }
+    body { font-family: "Inter", sans-serif; }
+    .page-section { display: none; }
+    .page-section.active { display: block; }
+    .nav-link.active { color: #1976d2; font-weight: bold; }
   </style>
- </head>
- <body class="bg-gray-50 text-gray-900">
+</head>
+<body class="bg-gray-50 text-gray-900">
   <header class="bg-white shadow-md sticky top-0 z-50">
-   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-    <div>
-     <h1 class="text-2xl font-bold text-blue-700">
-      Dklinity
-     </h1>
-     <p class="text-xs text-gray-500 max-w-xs leading-tight">
-      Advancing Next-Generation Clinical Research Through AI-Driven Trials and Real-Time Competitive Intelligence
-     </p>
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div>
+          <h1 class="text-2xl font-bold text-blue-700 cursor-pointer" onclick="showPage('home')">Dklinity</h1>
+          <p class="text-xs text-gray-500 max-w-xs leading-tight">
+            Advancing Next-Generation Clinical Research Through AI-Driven Trials and Real-Time Competitive Intelligence
+          </p>
+        </div>
+      </div>
+      <nav class="hidden md:flex space-x-8 font-semibold text-gray-700">
+        <a class="nav-link hover:text-blue-700 transition cursor-pointer active" onclick="showPage('home')">Home</a>
+        <a class="nav-link hover:text-blue-700 transition cursor-pointer" onclick="showPage('products')">Products</a>
+        <a class="nav-link hover:text-blue-700 transition cursor-pointer" onclick="showPage('services')">Services</a>
+        <a class="nav-link hover:text-blue-700 transition cursor-pointer" onclick="showPage('careers')">Careers</a>
+        <a class="nav-link hover:text-blue-700 transition cursor-pointer" onclick="showPage('contact')">Contact</a>
+      </nav>
+      <button aria-label="Toggle menu" class="md:hidden text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600" id="menu-btn">
+        <i class="fas fa-bars fa-lg"></i>
+      </button>
     </div>
-    <nav class="hidden md:flex space-x-8 font-semibold text-gray-700">
-     <a class="hover:text-blue-700 transition" href="#about">
-      Who We Are
-     </a>
-     <a class="hover:text-blue-700 transition" href="#focus">
-      Focus
-     </a>
-     <a class="hover:text-blue-700 transition" href="#products">
-      Products
-     </a>
-     <a class="hover:text-blue-700 transition" href="#careers">
-      Careers
-     </a>
-     <a class="hover:text-blue-700 transition" href="#contact">
-      Contact
-     </a>
+    <nav aria-label="Mobile menu" class="md:hidden bg-white border-t border-gray-200 hidden" id="mobile-menu">
+      <a class="block px-6 py-3 border-b border-gray-200 hover:bg-blue-50 cursor-pointer" onclick="showPage('home')">Home</a>
+      <a class="block px-6 py-3 border-b border-gray-200 hover:bg-blue-50 cursor-pointer" onclick="showPage('products')">Products</a>
+      <a class="block px-6 py-3 border-b border-gray-200 hover:bg-blue-50 cursor-pointer" onclick="showPage('services')">Services</a>
+      <a class="block px-6 py-3 border-b border-gray-200 hover:bg-blue-50 cursor-pointer" onclick="showPage('careers')">Careers</a>
+      <a class="block px-6 py-3 hover:bg-blue-50 cursor-pointer" onclick="showPage('contact')">Contact</a>
     </nav>
-    <button aria-label="Toggle menu" class="md:hidden text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-600" id="menu-btn">
-     <i class="fas fa-bars fa-lg">
-     </i>
-    </button>
-   </div>
-   <nav aria-label="Mobile menu" class="md:hidden bg-white border-t border-gray-200 hidden" id="mobile-menu">
-    <a class="block px-6 py-3 border-b border-gray-200 hover:bg-blue-50" href="#about">
-     Who We Are
-    </a>
-    <a class="block px-6 py-3 border-b border-gray-200 hover:bg-blue-50" href="#focus">
-     Focus
-    </a>
-    <a class="block px-6 py-3 border-b border-gray-200 hover:bg-blue-50" href="#products">
-     Products
-    </a>
-    <a class="block px-6 py-3 border-b border-gray-200 hover:bg-blue-50" href="#careers">
-     Careers
-    </a>
-    <a class="block px-6 py-3 hover:bg-blue-50" href="#contact">
-     Contact
-    </a>
-   </nav>
   </header>
-  <main class="max-w-7xl mx-auto px-6 py-12">
-   <section class="text-center max-w-4xl mx-auto mb-16">
-    <h2 class="text-4xl md:text-5xl font-extrabold text-blue-800 leading-tight mb-4">
-     Oncology. Insight. Innovation.
-    </h2>
-    <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-     Precision research. Proven results. Trust Dklinity — where science meets humanity.
-    </p>
-   </section>
-   <section class="mb-20" id="about">
-    <h3 class="text-3xl font-bold text-blue-700 mb-8 text-center">
-     Who We Are
-    </h3>
-    <div class="max-w-4xl mx-auto space-y-6 text-gray-700 text-center">
-     <p>
-      Dklinity is dedicated to advancing next-generation clinical research through AI-driven trials and real-time competitive intelligence. We specialize in oncology trials and research, combining precision science with compassionate care.
-     </p>
-     <p>
-      Our mission is to discover innovative treatments, deliver proven results, and heal patients worldwide. We are where science meets humanity.
-     </p>
-     <p>
-      Trust Dklinity to lead the future of clinical research with integrity, innovation, and impact.
-     </p>
+
+  <!-- HOME PAGE -->
+  <div id="home-page" class="page-section active">
+    <main class="max-w-7xl mx-auto px-6 py-12">
+      <!-- HOME SECTION -->
+      <section class="text-center max-w-4xl mx-auto mb-16">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-blue-800 leading-tight mb-4">
+          Oncology. Insight. Innovation.
+        </h2>
+        <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+          Precision research. Proven results. Trust Dklinity — where science meets humanity.
+        </p>
+      </section>
+
+      <!-- ABOUT SECTION -->
+      <section class="mb-20">
+        <h3 class="text-3xl font-bold text-blue-700 mb-8 text-center">Who We Are</h3>
+        <div class="max-w-4xl mx-auto space-y-6 text-gray-700 text-center">
+          <p>Dklinity is dedicated to advancing next-generation clinical research through AI-driven trials and real-time competitive intelligence. We specialize in oncology trials and research, combining precision science with compassionate care.</p>
+          <p>Our mission is to discover innovative treatments, deliver proven results, and heal patients worldwide. We are where science meets humanity.</p>
+          <p>Trust Dklinity to lead the future of clinical research with integrity, innovation, and impact.</p>
+        </div>
+      </section>
+
+      <!-- FOCUS SECTION -->
+      <section class="mb-20">
+        <h3 class="text-3xl font-bold text-blue-700 mb-8 text-center">Our Focus</h3>
+        <div class="grid gap-10 md:grid-cols-3">
+          <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+            <img alt="Illustration of oncology clinical trials" class="mb-4 rounded-full" height="120" src="https://storage.googleapis.com/a1aa/image/bdd0a682-ab38-475a-d5c4-749601c33c7a.jpg" width="120"/>
+            <h4 class="text-xl font-semibold mb-2 text-blue-800">Oncology Trials</h4>
+            <p class="text-gray-600">Leading AI-driven clinical trials focused on advancing cancer treatment and patient outcomes.</p>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+            <img alt="Microscope and DNA helix representing oncology research" class="mb-4 rounded-full" height="120" src="https://storage.googleapis.com/a1aa/image/b1f6dbb8-63fb-46cc-de5c-f6c8c40ec4d6.jpg" width="120"/>
+            <h4 class="text-xl font-semibold mb-2 text-blue-800">Oncology Research</h4>
+            <p class="text-gray-600">Cutting-edge research combining AI and clinical data to unlock new cancer therapies.</p>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
+            <img alt="Laboratory scientist analyzing drug compounds" class="mb-4 rounded-full" height="120" src="https://storage.googleapis.com/a1aa/image/e0195d72-4044-4265-9363-c5509a791bf6.jpg" width="120"/>
+            <h4 class="text-xl font-semibold mb-2 text-blue-800">Drug and Trials</h4>
+            <p class="text-gray-600">Streamlined drug development and trial management powered by real-time competitive intelligence.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ONCOLOGY TRIALS CIRCLE -->
+      <section class="mb-20">
+        <div class="flex justify-center">
+          <div class="relative w-96 h-96 mx-auto rounded-full bg-white shadow-lg">
+            <div aria-label="Breast Cancer - Pink band" class="absolute w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-white shadow-md" style="
+                    background-color: #E75480;
+                    transform: translate(-50%, -50%) rotate(0deg) translate(130px) rotate(-0deg);
+                    top: 50%;
+                    left: 50%;
+                  ">
+             <img alt="Pink breast cancer awareness ribbon on circular background" class="w-10 h-10 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/38cbeb1a-8a67-4711-c21f-826ac9cb41c1.jpg" width="40"/>
+            </div>
+            <div aria-label="Pancreatic Cancer - Purple band" class="absolute w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-white shadow-md" style="
+                    background-color: #6A0DAD;
+                    transform: translate(-50%, -50%) rotate(30deg) translate(130px) rotate(-30deg);
+                    top: 50%;
+                    left: 50%;
+                  ">
+             <img alt="Purple pancreatic cancer awareness ribbon on circular background" class="w-10 h-10 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/a8f441fb-ee39-4aba-7e20-14489b847068.jpg" width="40"/>
+            </div>
+            <div aria-label="Leukemia - Orange band" class="absolute w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-white shadow-md" style="
+                    background-color: #FF8C00;
+                    transform: translate(-50%, -50%) rotate(60deg) translate(130px) rotate(-60deg);
+                    top: 50%;
+                    left: 50%;
+                  ">
+             <img alt="Orange leukemia cancer awareness ribbon on circular background" class="w-10 h-10 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/09566e5c-e5cc-4ae6-749e-83ade2821071.jpg" width="40"/>
+            </div>
+            <div aria-label="Colon Cancer - Blue band" class="absolute w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-white shadow-md" style="
+                    background-color: #1E40AF;
+                    transform: translate(-50%, -50%) rotate(90deg) translate(130px) rotate(-90deg);
+                    top: 50%;
+                    left: 50%;
+                  ">
+             <img alt="Blue colon cancer awareness ribbon on circular background" class="w-10 h-10 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/d03ceaa6-678e-4dfc-1121-7699f2ea5236.jpg" width="40"/>
+            </div>
+            <div aria-label="Ovarian Cancer - Teal band" class="absolute w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-white shadow-md" style="
+                    background-color: #0F766E;
+                    transform: translate(-50%, -50%) rotate(120deg) translate(130px) rotate(-120deg);
+                    top: 50%;
+                    left: 50%;
+                  ">
+             <img alt="Teal ovarian cancer awareness ribbon on circular background" class="w-10 h-10 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/5a841371-989b-4c05-abed-e64b303e59e8.jpg" width="40"/>
+            </div>
+            <div aria-label="Kidney Cancer - Green band" class="absolute w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-white shadow-md" style="
+                    background-color: #22C55E;
+                    transform: translate(-50%, -50%) rotate(150deg) translate(130px) rotate(-150deg);
+                    top: 50%;
+                    left: 50%;
+                  ">
+             <img alt="Green kidney cancer awareness ribbon on circular background" class="w-10 h-10 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/b92b92dc-f9c9-4b4a-870c-2a706acbdcce.jpg" width="40"/>
+            </div>
+            <div aria-label="Bone Cancer - Yellow band" class="absolute w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-gray-900 shadow-md" style="
+                    background-color: #FACC15;
+                    transform: translate(-50%, -50%) rotate(180deg) translate(130px) rotate(-180deg);
+                    top: 50%;
+                    left: 50%;
+                  ">
+             <img alt="Yellow bone cancer awareness ribbon on circular background" class="w-10 h-10 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/820fcd7c-4a6f-43dc-84ef-1fc7af269b94.jpg" width="40"/>
+            </div>
+            <div aria-label="Liver Cancer - Brown band" class="absolute w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-white shadow-md" style="
+                    background-color: #7C2D12;
+                    transform: translate(-50%, -50%) rotate(210deg) translate(130px) rotate(-210deg);
+                    top: 50%;
+                    left: 50%;
+                  ">
+             <img alt="Brown liver cancer awareness ribbon on circular background" class="w-10 h-10 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/ddc18091-fda5-4910-4456-53a79eebfbbf.jpg" width="40"/>
+            </div>
+            <div aria-label="Melanoma - Black band" class="absolute w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-white shadow-md" style="
+                    background-color: #1F2937;
+                    transform: translate(-50%, -50%) rotate(240deg) translate(130px) rotate(-240deg);
+                    top: 50%;
+                    left: 50%;
+                  ">
+             <img alt="Black melanoma cancer awareness ribbon on circular background" class="w-10 h-10 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/0cdbe52c-9ed7-417d-e041-9319f6a6cf65.jpg" width="40"/>
+            </div>
+            <div aria-label="Prostate Cancer - Light blue band" class="absolute w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-gray-900 shadow-md" style="
+                    background-color: #60A5FA;
+                    transform: translate(-50%, -50%) rotate(270deg) translate(130px) rotate(-270deg);
+                    top: 50%;
+                    left: 50%;
+                  ">
+             <img alt="Light blue prostate cancer awareness ribbon on circular background" class="w-10 h-10 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/a90c453d-0373-41aa-0a3a-05bcda745c53.jpg" width="40"/>
+            </div>
+            <div aria-label="Breast Cancer (alternate) - Hot pink band" class="absolute w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-white shadow-md" style="
+                    background-color: #DB2777;
+                    transform: translate(-50%, -50%) rotate(300deg) translate(130px) rotate(-300deg);
+                    top: 50%;
+                    left: 50%;
+                  ">
+             <img alt="Hot pink breast cancer awareness ribbon on circular background" class="w-10 h-10 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/cff1ebba-6d03-4fca-250f-4bee25789f0f.jpg" width="40"/>
+            </div>
+            <div aria-label="Cervical Cancer - Teal band" class="absolute w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-white shadow-md" style="
+                    background-color: #0F766E;
+                    transform: translate(-50%, -50%) rotate(330deg) translate(130px) rotate(-330deg);
+                    top: 50%;
+                    left: 50%;
+                  ">
+             <img alt="Teal cervical cancer awareness ribbon on circular background" class="w-10 h-10 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/d724ef2f-9788-46d8-e434-b666bcc2b66c.jpg" width="40"/>
+            </div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center select-none px-4">
+             <span class="block text-4xl font-extrabold text-gray-900 leading-tight">
+              Dklinity Oncology Trials
+             </span>
+            </div>
+           </div>
+        </div>
+      </section>
+
+      <!-- PRODUCTS & SERVICES OVERVIEW -->
+      <section class="mb-20">
+        <h3 class="text-3xl font-bold text-blue-700 mb-12 text-center">Our Solutions</h3>
+        
+        <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <!-- Product Card -->
+          <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer group" onclick="showPage('products')">
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                  <span class="text-blue-600 text-2xl">🔍</span>
+                </div>
+                <h4 class="text-xl font-bold text-blue-700">Clinical Trial Intelligence Platform</h4>
+              </div>
+              <img alt="Clinical trial intelligence platform dashboard" class="w-full h-48 object-cover rounded-lg mb-4" src="https://storage.googleapis.com/a1aa/image/0ad20336-adab-4297-5984-f94edff6349a.jpg"/>
+              <p class="text-gray-600 mb-4 leading-relaxed">
+                Proprietary oncology trial database integrating global registries, publications, and real-time regulatory updates.
+              </p>
+              <div class="flex items-center text-blue-600 font-semibold group-hover:text-blue-800 transition-colors">
+                <span>Learn More</span>
+                <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Services Card -->
+          <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer group" onclick="showPage('services')">
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                  <span class="text-green-600 text-2xl">📊</span>
+                </div>
+                <h4 class="text-xl font-bold text-blue-700">Research & Data Services</h4>
+              </div>
+              <img alt="Research team analyzing data and creating reports" class="w-full h-48 object-cover rounded-lg mb-4" src="https://storage.googleapis.com/a1aa/image/3f9d3d7b-76be-4484-2f43-01048a0a83f1.jpg"/>
+              <p class="text-gray-600 mb-4 leading-relaxed">
+                Comprehensive research solutions for biotech, pharma, investors, and clinical teams.
+              </p>
+              <div class="flex items-center text-blue-600 font-semibold group-hover:text-blue-800 transition-colors">
+                <span>Learn More</span>
+                <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CAREERS & CONTACT CTA SECTION -->
+      <section class="mb-20">
+        <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <!-- Careers Card -->
+          <div class="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow border border-gray-100">
+            <img alt="Professional team collaborating on clinical research" class="w-full h-48 object-cover rounded-lg mb-4" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"/>
+            <h3 class="text-xl font-bold text-blue-700 mb-3">Join Our Mission</h3>
+            <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+              Be part of the future of oncology research. Work with cutting-edge AI technology to transform cancer treatment.
+            </p>
+            <button onclick="showPage('careers')" class="bg-blue-700 text-white font-semibold px-6 py-2 rounded-md hover:bg-blue-800 transition">
+              Explore Careers
+            </button>
+          </div>
+
+          <!-- Contact Card -->
+          <div class="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow border border-gray-100">
+            <img alt="Business professionals in meeting discussing partnerships" class="w-full h-48 object-cover rounded-lg mb-4" src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"/>
+            <h3 class="text-xl font-bold text-green-700 mb-3">Get In Touch</h3>
+            <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+              Ready to transform your clinical research? Connect with us for demos, partnerships, and collaboration opportunities.
+            </p>
+            <button onclick="showPage('contact')" class="bg-green-700 text-white font-semibold px-6 py-2 rounded-md hover:bg-green-800 transition">
+              Contact Us
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- PRODUCTS PAGE -->
+  <div id="products-page" class="page-section">
+    <main class="max-w-7xl mx-auto px-6 py-12">
+      <!-- Hero Section -->
+      <section class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-blue-800 mb-6">
+          Clinical Trial Intelligence Platform
+        </h1>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+          Proprietary database and analytics platform revolutionizing clinical research
+        </p>
+      </section>
+
+      <!-- Main Product Section -->
+      <section class="mb-16">
+        <div class="bg-white rounded-lg shadow-lg p-8">
+          <div class="flex flex-col lg:flex-row items-center gap-8">
+            <div class="lg:w-1/3">
+              <img alt="Clinical trial intelligence platform dashboard" class="w-full h-64 object-cover rounded-lg shadow-md" src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"/>
+            </div>
+            <div class="lg:w-2/3">
+              <h2 class="text-3xl font-bold text-blue-600 mb-4">
+                Proprietary Clinical Trial Intelligence Platform
+              </h2>
+              <p class="text-lg text-gray-700 mb-6">
+                Our comprehensive database integrates all clinical trial data, milestones, response and survival outcomes, adverse event data, and patient demographics data to provide unparalleled insights into the clinical research landscape.
+              </p>
+              <div class="grid md:grid-cols-2 gap-4">
+                <div class="flex items-start">
+                  <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">Complete clinical trial data</span>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">Milestones & regulatory tracking</span>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">Response & survival outcomes</span>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">Adverse event data analysis</span>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">Patient demographics insights</span>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-check-circle text-blue-600 mt-1 mr-3"></i>
+                  <span class="text-gray-700">Real-time data integration</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Data Sources Section -->
+      <section class="mb-16">
+        <h2 class="text-3xl font-bold text-blue-700 mb-8 text-center">Comprehensive Data Integration</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white p-6 rounded-lg shadow-md text-center">
+            <i class="fas fa-globe text-blue-600 text-3xl mb-4"></i>
+            <h3 class="text-lg font-semibold mb-2">Global Trial Registries</h3>
+            <p class="text-gray-600 text-sm">ClinicalTrials.gov, EUCTR, CTRI databases</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md text-center">
+            <i class="fas fa-file-medical text-blue-600 text-3xl mb-4"></i>
+            <h3 class="text-lg font-semibold mb-2">Publications & Abstracts</h3>
+            <p class="text-gray-600 text-sm">Peer-reviewed publications and conference abstracts</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md text-center">
+            <i class="fas fa-chart-line text-blue-600 text-3xl mb-4"></i>
+            <h3 class="text-lg font-semibold mb-2">Real-time Milestones</h3>
+            <p class="text-gray-600 text-sm">FDA/EMA approvals and regulatory activity</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="bg-blue-700 text-white rounded-lg p-8 text-center">
+        <h2 class="text-2xl font-bold mb-4">Ready to Transform Your Clinical Research?</h2>
+        <p class="text-lg mb-6">Get access to our comprehensive clinical trial intelligence platform</p>
+        <button onclick="openDemoModal()" class="bg-white text-blue-700 font-semibold px-6 py-3 rounded-md hover:bg-gray-100 transition">
+          Request Demo
+        </button>
+      </section>
+    </main>
+  </div>
+
+  <!-- SERVICES PAGE -->
+  <div id="services-page" class="page-section">
+    <main class="max-w-7xl mx-auto px-6 py-12">
+      <section class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-blue-800 mb-6">
+          End-to-End Research & Data Services
+        </h1>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+          Comprehensive solutions for biotech, pharma, investors, and clinical teams
+        </p>
+      </section>
+
+      <!-- Services Grid -->
+      <section class="mb-16">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+            <img alt="Database validation process" class="w-full h-40 object-cover rounded-lg mb-4" src="https://storage.googleapis.com/a1aa/image/3690564d-2b13-417f-786b-6d9534d7feec.jpg"/>
+            <h3 class="text-xl font-bold text-blue-700 mb-3">Database Build & Data Validation</h3>
+            <p class="text-gray-600 mb-4 text-sm">Ensuring accuracy and integrity of clinical trial data for reliable insights and decision-making.</p>
+            <ul class="text-xs text-gray-600 space-y-1">
+              <li>• Data quality assurance protocols</li>
+              <li>• Custom database architecture</li>
+              <li>• Validation and verification processes</li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+            <img alt="Drug pipeline analysis" class="w-full h-40 object-cover rounded-lg mb-4" src="https://storage.googleapis.com/a1aa/image/6520c57e-84ff-41ff-5755-6a51408ca190.jpg"/>
+            <h3 class="text-xl font-bold text-blue-700 mb-3">Drug Pipeline & Trial Benchmarking</h3>
+            <p class="text-gray-600 mb-4 text-sm">Comprehensive analysis to evaluate drug development progress and competitive positioning.</p>
+            <ul class="text-xs text-gray-600 space-y-1">
+              <li>• Pipeline assessment and analysis</li>
+              <li>• Competitive landscape mapping</li>
+              <li>• Trial design optimization</li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+            <img alt="Market research analysis" class="w-full h-40 object-cover rounded-lg mb-4" src="https://storage.googleapis.com/a1aa/image/c18774c3-0e87-4828-901f-ca8e6ccb6c5d.jpg"/>
+            <h3 class="text-xl font-bold text-blue-700 mb-3">Company Profiling & Market Research</h3>
+            <p class="text-gray-600 mb-4 text-sm">Detailed insights into companies and market trends to inform strategic decisions.</p>
+            <ul class="text-xs text-gray-600 space-y-1">
+              <li>• Comprehensive company profiles</li>
+              <li>• Market opportunity assessment</li>
+              <li>• Competitive intelligence reports</li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+            <img alt="Clinical regulatory research" class="w-full h-40 object-cover rounded-lg mb-4" src="https://storage.googleapis.com/a1aa/image/31727a7f-3807-4ad7-0bbe-a8f580e18b52.jpg"/>
+            <h3 class="text-xl font-bold text-blue-700 mb-3">Clinical & Regulatory Research</h3>
+            <p class="text-gray-600 mb-4 text-sm">In-depth research on clinical protocols and regulatory requirements worldwide.</p>
+            <ul class="text-xs text-gray-600 space-y-1">
+              <li>• Regulatory pathway analysis</li>
+              <li>• Clinical protocol development</li>
+              <li>• Global regulatory compliance</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Custom Research Section -->
+        <div class="bg-white rounded-lg shadow-lg p-6 mt-8 hover:shadow-xl transition-shadow">
+          <div class="flex flex-col lg:flex-row items-center gap-6">
+            <div class="lg:w-1/3">
+              <img alt="Custom research and surveys" class="w-full h-48 object-cover rounded-lg" src="https://storage.googleapis.com/a1aa/image/ea816f78-6b88-4c36-ffe3-1d9d92068339.jpg"/>
+            </div>
+            <div class="lg:w-2/3">
+              <h3 class="text-xl font-bold text-blue-700 mb-3">Custom Research & Surveys</h3>
+              <p class="text-gray-600 mb-4">Tailored research solutions and surveys to meet unique client needs and specific project requirements.</p>
+              <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-600">
+                <div>
+                  <h4 class="font-semibold mb-2">Research Services:</h4>
+                  <ul class="space-y-1 text-xs">
+                    <li>• Custom data collection</li>
+                    <li>• Survey design & execution</li>
+                    <li>• Statistical analysis</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">Deliverables:</h4>
+                  <ul class="space-y-1 text-xs">
+                    <li>• Detailed reports</li>
+                    <li>• Data visualizations</li>
+                    <li>• Strategic recommendations</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Process Section -->
+      <section class="mb-16">
+        <h2 class="text-2xl font-bold text-blue-700 mb-8 text-center">Our Process</h2>
+        <div class="grid md:grid-cols-4 gap-6">
+          <div class="text-center">
+            <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+              <span class="text-lg font-bold text-blue-700">1</span>
+            </div>
+            <h3 class="text-md font-semibold mb-2">Consultation</h3>
+            <p class="text-gray-600 text-xs">Understanding your specific needs</p>
+          </div>
+          <div class="text-center">
+            <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+              <span class="text-lg font-bold text-blue-700">2</span>
+            </div>
+            <h3 class="text-md font-semibold mb-2">Planning</h3>
+            <p class="text-gray-600 text-xs">Developing customized strategy</p>
+          </div>
+          <div class="text-center">
+            <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+              <span class="text-lg font-bold text-blue-700">3</span>
+            </div>
+            <h3 class="text-md font-semibold mb-2">Execution</h3>
+            <p class="text-gray-600 text-xs">Implementing with quality standards</p>
+          </div>
+          <div class="text-center">
+            <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+              <span class="text-lg font-bold text-blue-700">4</span>
+            </div>
+            <h3 class="text-md font-semibold mb-2">Delivery</h3>
+            <p class="text-gray-600 text-xs">Providing actionable insights</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="bg-blue-700 text-white rounded-lg p-8 text-center">
+        <h2 class="text-2xl font-bold mb-4">Ready to Accelerate Your Research?</h2>
+        <p class="text-lg mb-6">Let our experts help you achieve your clinical research goals</p>
+        <button onclick="openServiceModal()" class="bg-white text-blue-700 font-semibold px-6 py-3 rounded-md hover:bg-gray-100 transition">
+          Get Started Today
+        </button>
+      </section>
+    </main>
+  </div>
+
+  <!-- CAREERS PAGE -->
+  <div id="careers-page" class="page-section">
+    <main class="max-w-7xl mx-auto px-6 py-12">
+      <section class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-blue-800 mb-6">
+          Join Our Team
+        </h1>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+          Be part of the future of oncology research and clinical trials
+        </p>
+      </section>
+
+      <section class="mb-20">
+        <h2 class="text-3xl font-bold text-blue-700 mb-8 text-center">Why Work With Us?</h2>
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+          <div class="bg-white rounded-lg shadow-md p-6 text-center">
+            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-microscope text-blue-600 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-blue-800">Cutting-Edge Research</h3>
+            <p class="text-gray-600">Work on groundbreaking AI-driven clinical trials that are transforming cancer treatment.</p>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6 text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-users text-green-600 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-blue-800">Collaborative Environment</h3>
+            <p class="text-gray-600">Join a team of dedicated professionals working together to advance oncology research.</p>
+          </div>
+          <div class="bg-white rounded-lg shadow-md p-6 text-center">
+            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-chart-line text-purple-600 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-blue-800">Career Growth</h3>
+            <p class="text-gray-600">Grow your career in a rapidly expanding field with opportunities for advancement.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-20">
+        <h2 class="text-3xl font-bold text-blue-700 mb-8 text-center">Current Openings</h2>
+        <div class="max-w-4xl mx-auto space-y-6">
+          <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="text-xl font-semibold text-blue-800 mb-2">Clinical Research Analyst</h3>
+                <p class="text-gray-600 mb-2">Full-time • Remote/Hybrid</p>
+              </div>
+              <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Open</span>
+            </div>
+            <p class="text-gray-700 mb-4">Lead innovative oncology trials and collaborate with our research team to advance cancer treatment through AI-driven clinical research.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Clinical Research</span>
+              <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Data Analysis</span>
+              <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Oncology</span>
+            </div>
+            <button onclick="openCareerModal('Clinical Research Analyst')" class="text-blue-700 font-medium hover:underline">
+              Apply Now →
+            </button>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="text-xl font-semibold text-blue-800 mb-2">Data Scientist - Clinical Trials</h3>
+                <p class="text-gray-600 mb-2">Full-time • Remote</p>
+              </div>
+              <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Open</span>
+            </div>
+            <p class="text-gray-700 mb-4">Develop AI models and analytics for our clinical trial intelligence platform, working with large-scale oncology datasets.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Machine Learning</span>
+              <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Python</span>
+              <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Healthcare Data</span>
+            </div>
+            <button onclick="openCareerModal('Data Scientist - Clinical Trials')" class="text-blue-700 font-medium hover:underline">
+              Apply Now →
+            </button>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <p class="text-gray-700 mb-6">Don't see a position that fits? We're always looking for talented individuals.</p>
+          <button onclick="openCareerModal('General Application')" class="bg-blue-700 hover:bg-blue-800 text-white font-semibold px-8 py-3 rounded-md shadow-md transition">
+            Submit Your Resume
+          </button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- CONTACT PAGE -->
+  <div id="contact-page" class="page-section">
+    <main class="max-w-7xl mx-auto px-6 py-12">
+      <section class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-blue-800 mb-6">
+          Contact Us
+        </h1>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+          Ready to transform your clinical research? Let's connect and explore how we can work together.
+        </p>
+      </section>
+
+      <!-- Contact Options Grid -->
+      <section class="mb-20">
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <!-- General Inquiries -->
+          <div class="bg-white rounded-lg shadow-lg p-8 text-center hover:shadow-xl transition-shadow">
+            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <i class="fas fa-envelope text-blue-600 text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-blue-700 mb-4">General Inquiries</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Questions about our platform, demo requests, or general information about Dklinity's clinical trial intelligence solutions.
+            </p>
+            <a class="inline-flex items-center space-x-3 bg-blue-700 hover:bg-blue-800 text-white font-semibold px-6 py-3 rounded-md shadow-md transition" href="mailto:dklinity@gmail.com">
+              <i class="fas fa-envelope"></i>
+              <span>dklinity@gmail.com</span>
+            </a>
+          </div>
+
+          <!-- Services & Partnerships -->
+          <div class="bg-white rounded-lg shadow-lg p-8 text-center hover:shadow-xl transition-shadow">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <i class="fas fa-handshake text-green-600 text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-blue-700 mb-4">Services & Partnerships</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Custom research services, data validation projects, strategic partnerships, and collaboration opportunities.
+            </p>
+            <a class="inline-flex items-center space-x-3 bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-md shadow-md transition" href="mailto:dklinity.services@gmail.com">
+              <i class="fas fa-envelope"></i>
+              <span>dklinity.services@gmail.com</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Partnership & Collaboration Section -->
+      <section class="mb-20">
+        <div class="bg-gradient-to-r from-blue-50 to-green-50 rounded-lg p-10 max-w-4xl mx-auto">
+          <h3 class="text-3xl font-bold text-blue-700 mb-6 text-center">Partnership Opportunities</h3>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h4 class="text-xl font-semibold text-blue-600 mb-4 flex items-center">
+                <i class="fas fa-building mr-3"></i>
+                Strategic Partnerships
+              </h4>
+              <ul class="space-y-2 text-gray-700">
+                <li>• Biotech & Pharmaceutical Companies</li>
+                <li>• Contract Research Organizations (CROs)</li>
+                <li>• Academic Research Institutions</li>
+                <li>• Healthcare Technology Partners</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-xl font-semibold text-blue-600 mb-4 flex items-center">
+                <i class="fas fa-users mr-3"></i>
+                Collaboration Areas
+              </h4>
+              <ul class="space-y-2 text-gray-700">
+                <li>• Joint Research Initiatives</li>
+                <li>• Data Sharing Agreements</li>
+                <li>• Technology Integration</li>
+                <li>• Clinical Trial Optimization</li>
+              </ul>
+            </div>
+          </div>
+          <div class="text-center mt-8">
+            <p class="text-gray-700 mb-4 text-lg">
+              Interested in exploring partnership opportunities?
+            </p>
+            <a class="inline-block bg-blue-700 hover:bg-blue-800 text-white font-semibold px-8 py-3 rounded-md shadow-md transition" href="mailto:dklinity.services@gmail.com?subject=Partnership Inquiry">
+              Discuss Partnership
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Partner With Us -->
+      <section class="mb-20">
+        <h3 class="text-3xl font-bold text-blue-700 mb-8 text-center">Why Partner With Dklinity?</h3>
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-database text-purple-600 text-2xl"></i>
+            </div>
+            <h4 class="text-xl font-semibold text-blue-800 mb-3">Proprietary Data</h4>
+            <p class="text-gray-600">Access to our comprehensive oncology trial database and real-time intelligence platform.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-brain text-orange-600 text-2xl"></i>
+            </div>
+            <h4 class="text-xl font-semibold text-blue-800 mb-3">AI-Driven Insights</h4>
+            <p class="text-gray-600">Leverage advanced analytics and machine learning for competitive intelligence and decision-making.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-rocket text-teal-600 text-2xl"></i>
+            </div>
+            <h4 class="text-xl font-semibold text-blue-800 mb-3">Innovation Focus</h4>
+            <p class="text-gray-600">Collaborate on cutting-edge research that advances oncology treatment and patient outcomes.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- CAREER APPLICATION MODAL -->
+  <div id="careerModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+    <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-2xl font-bold text-blue-700" id="careerModalTitle">Career Application</h3>
+        <button onclick="closeCareerModal()" class="text-gray-500 hover:text-gray-700">
+          <i class="fas fa-times text-xl"></i>
+        </button>
+      </div>
+      <form id="careerForm">
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+            <input type="text" name="name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+            <input type="email" name="email" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+            <input type="tel" name="phone" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Position Applied For</label>
+            <input type="text" name="position" id="positionField" readonly class="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Current Location</label>
+            <input type="text" name="location" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Years of Experience</label>
+            <select name="experience" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option value="">Select experience level</option>
+              <option value="0-1 years">0-1 years</option>
+              <option value="2-3 years">2-3 years</option>
+              <option value="4-5 years">4-5 years</option>
+              <option value="6-10 years">6-10 years</option>
+              <option value="10+ years">10+ years</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Cover Letter / Why are you interested?</label>
+            <textarea name="coverLetter" rows="4" placeholder="Tell us why you're interested in this position and what you can bring to our team..." class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Resume/CV *</label>
+            <p class="text-xs text-gray-500 mb-2">Please attach your resume via email after submitting this form</p>
+            <input type="text" name="resumeNote" placeholder="Brief note about your background..." class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+        </div>
+        <div class="flex gap-4 mt-6">
+          <button type="button" onclick="closeCareerModal()" class="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50">Cancel</button>
+          <button type="submit" class="flex-1 px-4 py-2 bg-blue-700 text-white rounded-md hover:bg-blue-800">Submit Application</button>
+        </div>
+      </form>
     </div>
-   </section>
-   <section class="mb-20" id="focus">
-    <h3 class="text-3xl font-bold text-blue-700 mb-8 text-center">
-     Our Focus
-    </h3>
-    <div class="grid gap-10 md:grid-cols-3">
-     <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
-      <img alt="Illustration of oncology clinical trials with doctors and patients in a hospital setting" class="mb-4 rounded-full" height="120" src="https://storage.googleapis.com/a1aa/image/bdd0a682-ab38-475a-d5c4-749601c33c7a.jpg" width="120"/>
-      <h4 class="text-xl font-semibold mb-2 text-blue-800">
-       Oncology Trials
-      </h4>
-      <p class="text-gray-600">
-       Leading AI-driven clinical trials focused on advancing cancer treatment and patient outcomes.
-      </p>
-     </div>
-     <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
-      <img alt="Microscope and DNA helix representing oncology research and innovation" class="mb-4 rounded-full" height="120" src="https://storage.googleapis.com/a1aa/image/b1f6dbb8-63fb-46cc-de5c-f6c8c40ec4d6.jpg" width="120"/>
-      <h4 class="text-xl font-semibold mb-2 text-blue-800">
-       Oncology Research
-      </h4>
-      <p class="text-gray-600">
-       Cutting-edge research combining AI and clinical data to unlock new cancer therapies.
-      </p>
-     </div>
-     <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center">
-      <img alt="Laboratory scientist analyzing drug compounds for clinical trials" class="mb-4 rounded-full" height="120" src="https://storage.googleapis.com/a1aa/image/e0195d72-4044-4265-9363-c5509a791bf6.jpg" width="120"/>
-      <h4 class="text-xl font-semibold mb-2 text-blue-800">
-       Drug and Trials
-      </h4>
-      <p class="text-gray-600">
-       Streamlined drug development and trial management powered by real-time competitive intelligence.
-      </p>
-     </div>
+  </div>
+
+  <!-- MODALS -->
+  <div id="demoModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+    <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-2xl font-bold text-blue-700">Request Demo</h3>
+        <button onclick="closeDemoModal()" class="text-gray-500 hover:text-gray-700">
+          <i class="fas fa-times text-xl"></i>
+        </button>
+      </div>
+      <form id="demoForm">
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+            <input type="text" name="name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+            <input type="email" name="email" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Company</label>
+            <input type="text" name="company" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+        </div>
+        <div class="flex gap-4 mt-6">
+          <button type="button" onclick="closeDemoModal()" class="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50">Cancel</button>
+          <button type="submit" class="flex-1 px-4 py-2 bg-blue-700 text-white rounded-md hover:bg-blue-800">Request Demo</button>
+        </div>
+      </form>
     </div>
-   </section>
-   <section class="mb-20" id="products">
-    <h3 class="text-3xl font-bold text-blue-700 mb-8 text-center">
-     Our Product
-    </h3>
-    <div class="max-w-md mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
-     <div class="relative w-96 h-96 mx-auto rounded-full bg-white shadow-lg">
-      <div aria-label="Breast Cancer - Pink band" class="absolute w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-white shadow-md" style="
-              background-color: #E75480;
-              transform: translate(-50%, -50%) rotate(0deg) translate(130px) rotate(-0deg);
-              top: 50%;
-              left: 50%;
-            ">
-       <img alt="Pink breast cancer awareness ribbon on circular background" class="w-10 h-10 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/38cbeb1a-8a67-4711-c21f-826ac9cb41c1.jpg" width="40"/>
+  </div>
+
+  <div id="serviceModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+    <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-2xl font-bold text-blue-700">Service Inquiry</h3>
+        <button onclick="closeServiceModal()" class="text-gray-500 hover:text-gray-700">
+          <i class="fas fa-times text-xl"></i>
+        </button>
       </div>
-      <div aria-label="Pancreatic Cancer - Purple band" class="absolute w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-white shadow-md" style="
-              background-color: #6A0DAD;
-              transform: translate(-50%, -50%) rotate(30deg) translate(130px) rotate(-30deg);
-              top: 50%;
-              left: 50%;
-            ">
-       <img alt="Purple pancreatic cancer awareness ribbon on circular background" class="w-10 h-10 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/a8f441fb-ee39-4aba-7e20-14489b847068.jpg" width="40"/>
-      </div>
-      <div aria-label="Leukemia - Orange band" class="absolute w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-white shadow-md" style="
-              background-color: #FF8C00;
-              transform: translate(-50%, -50%) rotate(60deg) translate(130px) rotate(-60deg);
-              top: 50%;
-              left: 50%;
-            ">
-       <img alt="Orange leukemia cancer awareness ribbon on circular background" class="w-10 h-10 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/09566e5c-e5cc-4ae6-749e-83ade2821071.jpg" width="40"/>
-      </div>
-      <div aria-label="Colon Cancer - Blue band" class="absolute w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-white shadow-md" style="
-              background-color: #1E40AF;
-              transform: translate(-50%, -50%) rotate(90deg) translate(130px) rotate(-90deg);
-              top: 50%;
-              left: 50%;
-            ">
-       <img alt="Blue colon cancer awareness ribbon on circular background" class="w-10 h-10 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/d03ceaa6-678e-4dfc-1121-7699f2ea5236.jpg" width="40"/>
-      </div>
-      <div aria-label="Ovarian Cancer - Teal band" class="absolute w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-white shadow-md" style="
-              background-color: #0F766E;
-              transform: translate(-50%, -50%) rotate(120deg) translate(130px) rotate(-120deg);
-              top: 50%;
-              left: 50%;
-            ">
-       <img alt="Teal ovarian cancer awareness ribbon on circular background" class="w-10 h-10 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/5a841371-989b-4c05-abed-e64b303e59e8.jpg" width="40"/>
-      </div>
-      <div aria-label="Kidney Cancer - Green band" class="absolute w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-white shadow-md" style="
-              background-color: #22C55E;
-              transform: translate(-50%, -50%) rotate(150deg) translate(130px) rotate(-150deg);
-              top: 50%;
-              left: 50%;
-            ">
-       <img alt="Green kidney cancer awareness ribbon on circular background" class="w-10 h-10 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/b92b92dc-f9c9-4b4a-870c-2a706acbdcce.jpg" width="40"/>
-      </div>
-      <div aria-label="Bone Cancer - Yellow band" class="absolute w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-gray-900 shadow-md" style="
-              background-color: #FACC15;
-              transform: translate(-50%, -50%) rotate(180deg) translate(130px) rotate(-180deg);
-              top: 50%;
-              left: 50%;
-            ">
-       <img alt="Yellow bone cancer awareness ribbon on circular background" class="w-10 h-10 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/820fcd7c-4a6f-43dc-84ef-1fc7af269b94.jpg" width="40"/>
-      </div>
-      <div aria-label="Liver Cancer - Brown band" class="absolute w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-white shadow-md" style="
-              background-color: #7C2D12;
-              transform: translate(-50%, -50%) rotate(210deg) translate(130px) rotate(-210deg);
-              top: 50%;
-              left: 50%;
-            ">
-       <img alt="Brown liver cancer awareness ribbon on circular background" class="w-10 h-10 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/ddc18091-fda5-4910-4456-53a79eebfbbf.jpg" width="40"/>
-      </div>
-      <div aria-label="Melanoma - Black band" class="absolute w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-white shadow-md" style="
-              background-color: #1F2937;
-              transform: translate(-50%, -50%) rotate(240deg) translate(130px) rotate(-240deg);
-              top: 50%;
-              left: 50%;
-            ">
-       <img alt="Black melanoma cancer awareness ribbon on circular background" class="w-10 h-10 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/0cdbe52c-9ed7-417d-e041-9319f6a6cf65.jpg" width="40"/>
-      </div>
-      <div aria-label="Prostate Cancer - Light blue band" class="absolute w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-gray-900 shadow-md" style="
-              background-color: #60A5FA;
-              transform: translate(-50%, -50%) rotate(270deg) translate(130px) rotate(-270deg);
-              top: 50%;
-              left: 50%;
-            ">
-       <img alt="Light blue prostate cancer awareness ribbon on circular background" class="w-10 h-10 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/a90c453d-0373-41aa-0a3a-05bcda745c53.jpg" width="40"/>
-      </div>
-      <div aria-label="Breast Cancer (alternate) - Hot pink band" class="absolute w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-white shadow-md" style="
-              background-color: #DB2777;
-              transform: translate(-50%, -50%) rotate(300deg) translate(130px) rotate(-300deg);
-              top: 50%;
-              left: 50%;
-            ">
-       <img alt="Hot pink breast cancer awareness ribbon on circular background" class="w-10 h-10 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/cff1ebba-6d03-4fca-250f-4bee25789f0f.jpg" width="40"/>
-      </div>
-      <div aria-label="Cervical Cancer - Teal band" class="absolute w-16 h-16 rounded-full flex items-center justify-center text-xs font-semibold text-white shadow-md" style="
-              background-color: #0F766E;
-              transform: translate(-50%, -50%) rotate(330deg) translate(130px) rotate(-330deg);
-              top: 50%;
-              left: 50%;
-            ">
-       <img alt="Teal cervical cancer awareness ribbon on circular background" class="w-10 h-10 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/d724ef2f-9788-46d8-e434-b666bcc2b66c.jpg" width="40"/>
-      </div>
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center select-none px-4">
-       <span class="block text-4xl font-extrabold text-gray-900 leading-tight">
-        Dklinity Oncology Trials
-       </span>
-      </div>
-     </div>
+      <form id="serviceForm">
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+            <input type="text" name="name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+            <input type="email" name="email" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Service Interest</label>
+            <select name="service" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option value="">Select a service</option>
+              <option value="Database Build & Data Validation">Database Build & Data Validation</option>
+              <option value="Drug Pipeline & Trial Benchmarking">Drug Pipeline & Trial Benchmarking</option>
+              <option value="Company Profiling & Market Research">Company Profiling & Market Research</option>
+              <option value="Clinical & Regulatory Research">Clinical & Regulatory Research</option>
+              <option value="Custom Research & Surveys">Custom Research & Surveys</option>
+            </select>
+          </div>
+        </div>
+        <div class="flex gap-4 mt-6">
+          <button type="button" onclick="closeServiceModal()" class="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50">Cancel</button>
+          <button type="submit" class="flex-1 px-4 py-2 bg-blue-700 text-white rounded-md hover:bg-blue-800">Submit Inquiry</button>
+        </div>
+      </form>
     </div>
-   </section>
-   <section class="mb-20" id="careers">
-    <h3 class="text-3xl font-bold text-blue-700 mb-8 text-center">
-     Careers
-    </h3>
-    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-8">
-     <p class="text-center text-gray-700 mb-6">
-      Join our team of dedicated professionals working to transform oncology research and patient care.
-     </p>
-     <div class="grid md:grid-cols-1 gap-6">
-      <div class="border border-gray-200 rounded-lg p-5 hover:shadow-md transition">
-       <h4 class="text-xl font-semibold text-blue-800 mb-2">
-        Clinical Research Analyst
-       </h4>
-       <p class="text-gray-600 mb-4">
-        Lead innovative oncology trials and collaborate with our research team.
-       </p>
-       <a class="text-blue-700 font-medium hover:underline" href="#">
-        Learn more →
-       </a>
-      </div>
-     </div>
-     <div class="text-center mt-8">
-      <p class="text-gray-700 italic mb-4">
-       Currently no openings available.
-      </p>
-      <a href="mailto:careers.dklinity@gmail.com" class="inline-block bg-blue-700 hover:bg-blue-800 text-white font-semibold px-6 py-3 rounded-md shadow-md transition">
-       Submit Your Resume
-      </a>
-     </div>
-    </div>
-   </section>
-   <section class="mb-20 bg-blue-50 rounded-lg p-10 max-w-3xl mx-auto shadow-md" id="contact">
-    <h3 class="text-3xl font-bold text-blue-700 mb-6 text-center">
-     Contact Us
-    </h3>
-    <p class="text-center text-gray-700 mb-6">
-     Have questions or want to learn more about our oncology trials and research? Reach out to us!
-    </p>
-    <div class="flex flex-col sm:flex-row sm:justify-center sm:space-x-6 space-y-4 sm:space-y-0 items-center">
-     <a class="inline-flex items-center space-x-3 bg-blue-700 hover:bg-blue-800 text-white font-semibold px-6 py-3 rounded-md shadow-md transition" href="mailto:dklinity@gmail.com">
-      <i class="fas fa-envelope fa-lg">
-      </i>
-      <span>
-       dklinity@gmail.com
-      </span>
-     </a>
-     <a class="inline-flex items-center space-x-3 text-blue-700 font-semibold px-6 py-3 rounded-md border border-blue-700 hover:bg-blue-100 transition" href="https://placehold.co/150x50/png?text=Company+Logo" rel="noopener noreferrer" target="_blank">
-      <i class="fas fa-globe fa-lg">
-      </i>
-      <span>
-       Visit Our Website
-      </span>
-     </a>
-    </div>
-   </section>
-  </main>
+  </div>
+
   <footer class="bg-white border-t border-gray-200 py-8">
-   <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-gray-600 text-sm">
-    <p>
-     © 2024 Dklinity. All rights reserved.
-    </p>
-    <div class="flex space-x-6 mt-4 md:mt-0">
-     <a aria-label="Facebook" class="hover:text-blue-700 transition" href="#">
-      <i class="fab fa-facebook fa-lg">
-      </i>
-     </a>
-     <a aria-label="Twitter" class="hover:text-blue-700 transition" href="#">
-      <i class="fab fa-twitter fa-lg">
-      </i>
-     </a>
-     <a aria-label="LinkedIn" class="hover:text-blue-700 transition" href="#">
-      <i class="fab fa-linkedin fa-lg">
-      </i>
-     </a>
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-gray-600 text-sm">
+      <p>© 2024 Dklinity. All rights reserved.</p>
+      <div class="flex space-x-6 mt-4 md:mt-0">
+        <a aria-label="Facebook" class="hover:text-blue-700 transition" href="#"><i class="fab fa-facebook fa-lg"></i></a>
+        <a aria-label="Twitter" class="hover:text-blue-700 transition" href="#"><i class="fab fa-twitter fa-lg"></i></a>
+        <a aria-label="LinkedIn" class="hover:text-blue-700 transition" href="#"><i class="fab fa-linkedin fa-lg"></i></a>
+      </div>
     </div>
-   </div>
   </footer>
+
   <script>
-   const menuBtn = document.getElementById("menu-btn");
+    const menuBtn = document.getElementById("menu-btn");
     const mobileMenu = document.getElementById("mobile-menu");
 
     menuBtn.addEventListener("click", () => {
       mobileMenu.classList.toggle("hidden");
     });
+
+    function showPage(pageId) {
+      // Hide all pages
+      document.querySelectorAll('.page-section').forEach(page => {
+        page.classList.remove('active');
+      });
+      
+      // Show selected page
+      document.getElementById(pageId + '-page').classList.add('active');
+      
+      // Update navigation active state
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+      });
+      
+      // Set active nav link
+      event.target.classList.add('active');
+      
+      // Close mobile menu
+      mobileMenu.classList.add('hidden');
+      
+      // Scroll to top
+      window.scrollTo(0, 0);
+    }
+
+    function openDemoModal() {
+      document.getElementById('demoModal').classList.remove('hidden');
+    }
+    
+    function closeDemoModal() {
+      document.getElementById('demoModal').classList.add('hidden');
+    }
+    
+    function openServiceModal() {
+      document.getElementById('serviceModal').classList.remove('hidden');
+    }
+    
+    function closeServiceModal() {
+      document.getElementById('serviceModal').classList.add('hidden');
+    }
+    
+    function openCareerModal(position) {
+      document.getElementById('careerModal').classList.remove('hidden');
+      document.getElementById('careerModalTitle').textContent = position === 'General Application' ? 'General Application' : 'Apply for ' + position;
+      document.getElementById('positionField').value = position;
+    }
+    
+    function closeCareerModal() {
+      document.getElementById('careerModal').classList.add('hidden');
+    }
+    
+    document.getElementById('demoForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      let emailBody = 'Demo Request from Clinical Trial Intelligence Platform\n\n';
+      for (let [key, value] of formData.entries()) {
+        emailBody += `${key.charAt(0).toUpperCase() + key.slice(1)}: ${value}\n`;
+      }
+      window.location.href = `mailto:dklinity@gmail.com?subject=Demo Request&body=${encodeURIComponent(emailBody)}`;
+      closeDemoModal();
+    });
+    
+    document.getElementById('serviceForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      let emailBody = 'Service Inquiry\n\n';
+      for (let [key, value] of formData.entries()) {
+        emailBody += `${key.charAt(0).toUpperCase() + key.slice(1)}: ${value}\n`;
+      }
+      window.location.href = `mailto:dklinity.services@gmail.com?subject=Service Inquiry&body=${encodeURIComponent(emailBody)}`;
+      closeServiceModal();
+    });
+    
+    document.getElementById('careerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      let emailBody = 'Career Application\n\n';
+      for (let [key, value] of formData.entries()) {
+        emailBody += `${key.charAt(0).toUpperCase() + key.slice(1)}: ${value}\n`;
+      }
+      window.location.href = `mailto:careers.dklinity@gmail.com?subject=Career Application - ${formData.get('position')}&body=${encodeURIComponent(emailBody)}`;
+      closeCareerModal();
+    });
   </script>
- </body>
+</body>
 </html>
 
 
