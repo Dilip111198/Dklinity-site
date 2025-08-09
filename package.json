@@ -1,12 +1,11 @@
 {
-  "name": "dklinity-insights-scraper",
+  "name": "dklinity-linkedin-fetch",
   "version": "1.0.0",
-  "private": true,
+  "type": "module",
   "scripts": {
-    "fetch:linkedin": "node fetch-linkedin.js"
+    "fetch:linkedin": "node scripts/fetchLinkedInPosts.js"
   },
   "dependencies": {
-    "puppeteer": "22.13.1"
+    "node-fetch": "^3.3.2"
   }
 }
-
